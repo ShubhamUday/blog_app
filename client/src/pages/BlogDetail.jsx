@@ -1,7 +1,6 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Typography } from "antd";
-import { useSelector } from "react-redux";
 import { getBlogById } from "../apicalls/blogs";
 
 const BlogDetail = () => {
@@ -22,6 +21,7 @@ const BlogDetail = () => {
     <div>
       <Typography.Title>{blog.title}</Typography.Title>
       <Typography.Paragraph>{blog.content}</Typography.Paragraph>
+      <p>Author : {blog.user.name}</p>
     </div>
   );
 };

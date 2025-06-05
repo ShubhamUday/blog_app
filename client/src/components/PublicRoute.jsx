@@ -1,22 +1,13 @@
 import { HomeOutlined, LoginOutlined, UserOutlined } from "@ant-design/icons";
-import { Divider, Layout, Menu } from "antd";
+import { Layout, Menu } from "antd";
 import { Header } from "antd/es/layout/layout";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setUser } from "../redux/userSlice";
 
 function PublicRoute({ children }) {
   const { user } = useSelector((state) => state.user);
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      dispatch(setUser(null));
-    }
-  }, []);
 
   const navItems = [
     {

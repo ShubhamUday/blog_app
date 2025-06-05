@@ -26,6 +26,7 @@ function ProtectedRoute({ children }) {
           to="/"
           onClick={() => {
             localStorage.removeItem("token");
+            dispatch(setUser(null));
             navigate("/");
           }}
         >
@@ -50,6 +51,7 @@ function ProtectedRoute({ children }) {
       }
     } catch (error) {
       dispatch(setUser(null));
+      localStorage.removeItem("token");
       message.error(error.message);
     }
   };
