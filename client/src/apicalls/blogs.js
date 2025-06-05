@@ -43,8 +43,8 @@ export const getAllBlogsByUser = async (payload) => {
 export const getAllBlogs = async (page, limit = 6) => {
   try {
     const response = await axiosInstance.get(
-    `/blog/get-all-blogs?page=${page}&limit=${limit}`
-  );
+      `/blog/get-all-blogs?page=${page}&limit=${limit}`
+    );
     return response.data;
   } catch (error) {
     return error.response;
@@ -53,9 +53,7 @@ export const getAllBlogs = async (page, limit = 6) => {
 
 export const getBlogById = async (id) => {
   try {
-    const response = await axiosInstance.get(
-      `/blog/get-blog-by-id/${id}`
-    );
+    const response = await axiosInstance.get(`/blog/get-blog-by-id/${id}`);
     return response.data;
   } catch (err) {
     return err.response;

@@ -29,11 +29,12 @@ const getAllBlogs = async (req, res) => {
       .limit(limit);
 
     const total = await BlogModel.countDocuments();
-    
+
     res.send({
       success: true,
       message: "Blog's fetched successfully",
-      data: blogs, total
+      data: blogs,
+      total,
     });
   } catch (error) {
     res.send({
